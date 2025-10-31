@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Script Bucin 💘</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+    }
+    h1 {
+      color: #fff;
+      font-size: 2.5em;
+      text-shadow: 0 0 10px #ff6b81;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff6b81; }
+      to { text-shadow: 0 0 25px #ff4757, 0 0 50px #ff6b81; }
+    }
+    #message {
+      color: white;
+      font-size: 1.5em;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .heart {
+      position: absolute;
+      color: #ff6b81;
+      font-size: 24px;
+      animation: fall 3s linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>💘 Haiiiii riaa 💘</h1>
+  <div id="message">belajar coding nihhh...</div>
+
+  <script>
+    const messages = [
+      "Kamu tahu nggak? Aku tuh suka payung teduhh 😳",
+      "Kalau kamu ga suka hujan, aku bisa jadi payung ",
+      "Aku juga suka kopii 😚",
+      "Tapi, Aku nggak butuh kopi. karena senyummu udah bikin melek ☕💖",
+      "Cinta itu kayak HTML, nggak lengkap kalau tag penutupnya nggak ada — dan kamu itu <b>penutupku</b> 😘"
+    ];
+
+    let i = 0;
+    setInterval(() => {
+      document.getElementById("message").innerHTML = messages[i];
+      i = (i + 1) % messages.length;
+    }, 3000);
+
+    // efek hati jatuh
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 10 + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 3000);
+    }, 200);
+  </script>
+</body>
+</html>
